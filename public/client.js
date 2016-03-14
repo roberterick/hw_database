@@ -1,5 +1,6 @@
 THE_URL='http://localhost:3000';
-THE_URL='http://52.35.58.218:3000';
+//THE_URL='http://52.35.58.218:3000';
+TIMEOUT=2000;
 
 function getUrl(url, callback) {
 //    url=encodeURI(url);
@@ -16,6 +17,12 @@ function getUrl(url, callback) {
     req.addEventListener("error", function () {
         callback(null, new Error("Network error"));
     });
+    
+    var reqTimeout=setTimeout(ajaxTimeout,TIMEOUT);
+    function ajaxTimeout(){
+        callback(req.responseText);
+    }
+    
     req.send(null);
 }
 
@@ -105,6 +112,12 @@ function sendJson(url,json,callback) {
     req.addEventListener("error", function () {
         callback(null, new Error("Network error"));
     });
+    
+    var reqTimeout=setTimeout(ajaxTimeout,TIMEOUT);
+    function ajaxTimeout(){
+        callback(req.responseText);
+    }
+    
     req.send(json);
 }
 
