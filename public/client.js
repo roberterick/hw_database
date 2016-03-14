@@ -1,4 +1,5 @@
-
+THE_URL='http://localhost:3000';
+THE_URL='http://52.35.58.218:3000';
 
 function getUrl(url, callback) {
 //    url=encodeURI(url);
@@ -20,7 +21,7 @@ function getUrl(url, callback) {
 
 function makeTable(){
     //console.log("make table");
-    getUrl('http://localhost:3000/getTable',makeTableCallback);
+    getUrl(THE_URL+'/getTable',makeTableCallback);
 }
 
 function makeTableCallback(content, error) {
@@ -115,14 +116,14 @@ function insertMethod(event) {
     j['weight']=document.getElementById("weight").value;
     j['date']=document.getElementById("date").value;
     j['lbs']=document.getElementById("lbs").value;
-    sendJson('http://localhost:3000/insert',JSON.stringify(j),makeTable);
+    sendJson(THE_URL+'/insert',JSON.stringify(j),makeTable);
 }
 
 function deleteMethod(event) {
     var rowid=this.id;
     rowid=rowid.substring(1);
     var j={id:rowid};
-    sendJson('http://localhost:3000/delete',JSON.stringify(j),makeTable);
+    sendJson(THE_URL+'/delete',JSON.stringify(j),makeTable);
 }
 
 function editMethod(event) {
