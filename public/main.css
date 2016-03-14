@@ -1,0 +1,14 @@
+th,td{
+    border-style:solid;
+    border-width:thin;
+    padding:0.5em;
+}
+
+thead th{font-weight:bold}
+
+tbody tr th{font-style: italic; font-weight:normal}
+
+table{
+    padding:0.5em;
+}
+
