@@ -14,11 +14,19 @@ app.set('view engine', 'handlebars');
 app.set('port', 3000);
 app.use(express.static('public'));
 
+//var pool = mysql.createPool({
+//    host: 'localhost',
+//    user: 'robert',
+//    password: 'blue',
+//    database: 'mysql'
+//});
+
 var pool = mysql.createPool({
-    host: 'localhost',
+//    host: 'https://52.35.58.218',
+    host: 'mydbinstance.cxue6qzymn5s.us-west-2.rds.amazonaws.com',
     user: 'robert',
     password: 'blue',
-    database: 'mysql'
+    database: 'workouts'
 });
 
 var COLUMNS = [{1: 'id', 2: 'name', 3: 'reps', 4: 'weight', 5: 'date (yyyymmdd)', 6: 'lbs'}];
